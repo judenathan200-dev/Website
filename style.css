@@ -407,10 +407,9 @@ footer {
 /* --- RESPONSIVE DESIGN FOR PHONES --- */
 @media (max-width: 768px) {
     .nav-container {
-        flex-direction: column;
-        gap: 15px;
+        flex-direction: row; /* Keeps logo and 3 lines side-by-side */
+        justify-content: space-between; /* Puts logo left, lines right */
     }
-
     .hero, .feature-section, .feature-section.reverse {
         flex-direction: column;
         padding: 40px 5%;
@@ -682,5 +681,131 @@ footer {
     
     .about-hero h1 {
         font-size: 2rem;
+    }
+}
+/* =========================================
+   PARTNERS SECTION STYLES
+   ========================================= */
+.partners-section {
+    padding: 60px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.partners-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 logos side-by-side */
+    gap: 40px;
+    align-items: center; /* Centers them vertically if they are different sizes */
+    margin-top: 30px;
+}
+
+.partner-card {
+    background-color: #ffffff; /* White background card for the logos */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    border: 1px solid #eaeaea;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px; /* Keeps all cards the same height */
+}
+
+.partner-card img {
+    max-width: 100%;
+    max-height: 100px; /* Prevents giant logos from overflowing */
+    object-fit: contain; /* Keeps the logo's shape perfect */
+    filter: grayscale(100%); /* Makes logos black and white by default */
+    opacity: 0.7; /* Slightly faded */
+    transition: all 0.3s ease;
+}
+
+/* When you hover over a logo, it turns colorful and bright */
+.partner-card img:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+/* --- RESPONSIVE DESIGN FOR PHONES --- */
+@media (max-width: 768px) {
+    .partners-grid {
+        grid-template-columns: repeat(3, 1fr); /* Keeps 3 side-by-side on phone */
+        gap: 15px; /* Smaller gap so they fit nicely */
+    }
+    
+    .partner-card {
+        height: 100px; /* Shorter cards on mobile */
+        padding: 10px;
+    }
+    
+    .partner-card img {
+        max-height: 60px;
+    }
+}
+/* =========================================
+   PURPOSE SECTION STYLES
+   ========================================= */
+.purpose-section {
+    padding: 60px 5%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.purpose-container {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    border-left: 5px solid var(--primary-blue); /* A nice blue accent bar on the left */
+}
+
+.purpose-container h2 {
+    font-size: 2rem;
+    color: var(--dark-black);
+    margin-bottom: 20px;
+}
+
+.purpose-container p {
+    color: #555;
+    margin-bottom: 15px;
+    line-height: 1.7;
+    font-size: 1.05rem;
+}
+
+/* Custom Bullet Points */
+.purpose-list {
+    list-style: none; /* Removes default black dots */
+    padding-left: 5px;
+}
+
+.purpose-list li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 12px;
+    color: #555;
+    font-size: 1.05rem;
+    line-height: 1.5;
+}
+
+/* Creates a custom blue diamond/dot bullet */
+.purpose-list li::before {
+    content: "▶"; /* A right-pointing triangle */
+    color: var(--primary-blue);
+    font-size: 0.8rem;
+    position: absolute;
+    left: 0;
+    top: 4px;
+}
+
+/* --- RESPONSIVE DESIGN FOR PHONES --- */
+@media (max-width: 600px) {
+    .purpose-container {
+        padding: 25px;
+    }
+    
+    .purpose-container h2 {
+        font-size: 1.7rem;
     }
 }
